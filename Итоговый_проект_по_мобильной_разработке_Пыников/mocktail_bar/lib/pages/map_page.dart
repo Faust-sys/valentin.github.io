@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
-// ⚠️ Импортируем боковую панель
-import 'home_page.dart'; // <-- если нужно, поправь путь
+import 'home_page.dart'; 
 
 class MapPage extends StatelessWidget {
   const MapPage({super.key});
@@ -16,7 +15,6 @@ class MapPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
 
-      // 🔥 ДОБАВЛЯЕМ СЮДА БОКОВОЕ МЕНЮ
       drawer: const ModernDrawer(),
 
       appBar: AppBar(
@@ -29,7 +27,6 @@ class MapPage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          // ---------------- ГРАДИЕНТНЫЙ ФОН ----------------
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -43,7 +40,6 @@ class MapPage extends StatelessWidget {
             ),
           ),
 
-          // Светящиеся круги
           Positioned(
             top: -80,
             left: -40,
@@ -63,7 +59,6 @@ class MapPage extends StatelessWidget {
                 children: [
                   const SizedBox(height: 20),
 
-                  // --------------------- ЗАГОЛОВОК ---------------------
                   const Text(
                     "Мы на карте",
                     style: TextStyle(
@@ -84,7 +79,6 @@ class MapPage extends StatelessWidget {
 
                   const SizedBox(height: 30),
 
-                  // ---------------- СТЕКЛЯННАЯ КАРТА ----------------
                   Expanded(
                     child: _glassCard(
                       padding: 0,
@@ -132,7 +126,6 @@ class MapPage extends StatelessWidget {
     );
   }
 
-  // ---------------- СТЕКЛЯННЫЙ КОНТЕЙНЕР ----------------
   Widget _glassCard({required Widget child, double padding = 16}) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(22),
@@ -153,7 +146,6 @@ class MapPage extends StatelessWidget {
     );
   }
 
-  // ------------------ СВЕТЯЩИЙСЯ КРУГ -------------------
   Widget _blurCircle(double size, Color color) {
     return Container(
       width: size,

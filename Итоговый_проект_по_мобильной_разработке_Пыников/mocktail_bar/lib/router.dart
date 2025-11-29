@@ -6,7 +6,7 @@ import 'pages/menu_page.dart';
 import 'pages/map_page.dart';
 import 'pages/events_page.dart';
 import 'pages/admin_page.dart';
-import 'pages/admin_login_page.dart';   // ✅ добавляем импорт
+import 'pages/admin_login_page.dart'; 
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
@@ -36,7 +36,7 @@ final GoRouter appRouter = GoRouter(
           const EventsPage(),
     ),
 
-    // ✅ Страница логина админа
+    // Страница логина админа
     GoRoute(
       path: '/admin-login',
       name: 'admin-login',
@@ -44,7 +44,7 @@ final GoRouter appRouter = GoRouter(
           const AdminLoginPage(),
     ),
 
-    // ❗ Доступна только после авторизации
+    // Доступна только после авторизации
     GoRoute(
       path: '/admin',
       name: 'admin',

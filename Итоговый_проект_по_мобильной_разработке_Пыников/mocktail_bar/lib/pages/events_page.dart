@@ -20,10 +20,7 @@ class _EventsPageState extends State<EventsPage> {
 
   final Map<DateTime, List<String>> _events = {};
 
-  // Нормализация даты
   DateTime _normalize(DateTime d) => DateTime(d.year, d.month, d.day);
-
-  // =============================== БАЗА ДАННЫХ ===============================
 
   // Загрузка событий из Supabase
   Future<void> _loadEventsFromDB() async {
@@ -91,7 +88,7 @@ class _EventsPageState extends State<EventsPage> {
     _loadEventsFromDB();
   }
 
-  // ==========================================================================
+  
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +110,6 @@ class _EventsPageState extends State<EventsPage> {
 
       body: Stack(
         children: [
-          // ---------------- ФОН ----------------
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -161,7 +157,6 @@ class _EventsPageState extends State<EventsPage> {
 
                   const SizedBox(height: 25),
 
-                  // ---------- Календарь ----------
                   _glassCard(
                     padding: 0,
                     child: TableCalendar(
@@ -215,7 +210,6 @@ class _EventsPageState extends State<EventsPage> {
 
                   const SizedBox(height: 20),
 
-                  // ---------- События ----------
                   Expanded(
                     child: _glassCard(
                       child: selectedEvents.isEmpty
@@ -243,7 +237,6 @@ class _EventsPageState extends State<EventsPage> {
                                     ),
                                   ),
 
-                                  // -------- удаление только для админа --------
                                   trailing: AppState.isAdmin
                                       ? IconButton(
                                           icon: const Icon(Icons.delete,
@@ -271,7 +264,6 @@ class _EventsPageState extends State<EventsPage> {
         ],
       ),
 
-      // ---------- Плавающая кнопка только для админа ----------
       floatingActionButton: AppState.isAdmin
           ? FloatingActionButton(
               backgroundColor: Colors.deepPurpleAccent,
@@ -320,7 +312,6 @@ class _EventsPageState extends State<EventsPage> {
     );
   }
 
-  // -------- Стеклянный контейнер --------
   Widget _glassCard({required Widget child, double padding = 16}) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(22),
@@ -340,7 +331,6 @@ class _EventsPageState extends State<EventsPage> {
     );
   }
 
-  // -------- Светящийся круг --------
   Widget _blurCircle(double size, Color color) {
     return Container(
       width: size,

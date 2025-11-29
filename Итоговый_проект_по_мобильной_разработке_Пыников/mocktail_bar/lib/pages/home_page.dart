@@ -7,9 +7,7 @@ import 'app_state.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  // -------------------------------------------------------------
-  // Загрузка популярных напитков из БД (3 самых дорогих / популярных)
-  // -------------------------------------------------------------
+  
   Future<List<Map<String, dynamic>>> _loadPopular() async {
     final res = await Supabase.instance.client
         .from('drinks')
@@ -41,12 +39,9 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      // -------------------------------------------------------------
-      // ФОН + адаптивный контент
-      // -------------------------------------------------------------
+     
       body: Stack(
         children: [
-          // ---------------- ФОН НА ПОЛНЫЙ ЭКРАН ----------------
           Container(
             constraints: const BoxConstraints.expand(),
             decoration: const BoxDecoration(
@@ -62,7 +57,6 @@ class HomePage extends StatelessWidget {
             ),
           ),
 
-          // Размытые круги
           Positioned(
             top: -120,
             left: -80,
@@ -74,7 +68,6 @@ class HomePage extends StatelessWidget {
             child: _blurCircle(350, Colors.cyanAccent.withOpacity(0.35)),
           ),
 
-          // ---------------- КОНТЕНТ ----------------
           SafeArea(
             child: SingleChildScrollView(
               child: ConstrainedBox(
@@ -87,9 +80,6 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // -------------------------------------------------
-                      // Заголовок
-                      // -------------------------------------------------
                       const Text(
                         'Открой мир\nбезалкогольных коктейлей',
                         style: TextStyle(
@@ -117,9 +107,6 @@ class HomePage extends StatelessWidget {
 
                       const SizedBox(height: 35),
 
-                      // -------------------------------------------------
-                      // Популярные позиции
-                      // -------------------------------------------------
                       const Text(
                         "Популярные позиции",
                         style: TextStyle(
@@ -203,9 +190,6 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  // -------------------------------------------------------------
-  // Разделы (кнопки)
-  // -------------------------------------------------------------
   Widget _sectionButton(BuildContext context, IconData icon, String title, String route) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
@@ -233,9 +217,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  // -------------------------------------------------------------
-  // Карточка напитка
-  // -------------------------------------------------------------
+  
   Widget _drinkCard({
     required String name,
     required String price,
@@ -306,9 +288,6 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  // -------------------------------------------------------------
-  // Стеклянная карточка
-  // -------------------------------------------------------------
   Widget _glassCard({required Widget child}) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
@@ -327,9 +306,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  // -------------------------------------------------------------
-  // Размытые круги
-  // -------------------------------------------------------------
+  
   Widget _blurCircle(double size, Color color) {
     return Container(
       width: size,
@@ -349,9 +326,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-// ===================================================================
-//                        МЕНЮ ДЛЯ НАВИГАЦИИ
-// ===================================================================
+
 class ModernDrawer extends StatelessWidget {
   const ModernDrawer();
 

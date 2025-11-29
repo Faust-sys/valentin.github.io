@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-// ⚠️ импортируем панель навигации
-import 'home_page.dart'; // <-- путь поправь под свой проект
+import 'home_page.dart';
 
 class AdminPage extends StatefulWidget {
   const AdminPage({super.key});
@@ -153,7 +152,6 @@ class _AdminPageState extends State<AdminPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
 
-      // 🔥 ДОБАВЛЯЕМ БОКОВОЕ МЕНЮ
       drawer: const ModernDrawer(),
 
       floatingActionButton: FloatingActionButton.extended(
@@ -245,8 +243,6 @@ class _AdminPageState extends State<AdminPage> {
     );
   }
 
-  // --- Карточки, UI элементы остаются теми же ---
-  // (оставил без изменений)
   Widget _drinkAdminCard({
     required String name,
     required String price,
